@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fsdbench"
+version = "0.1.0"
+description = "Factual State Discovery Benchmark — conversational fact elicitation over Polish tax interpretations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Mateusz Bystroński" },
+    { name = "Kamil Tagowski", email = "kamil.tagowski@pwr.edu.pl" },
+    { name = "Denis Janiak" },
+    { name = "Julia Farganus" },
+    { name = "Łukasz Augustyniak" },
+    { name = "Monika Kajdanowicz" },
+    { name = "Tomasz Kajdanowicz" },
+]
+keywords = ["benchmark", "nlp", "legal-ai", "llm", "tax-law", "polish"]
+dependencies = [
+    "litellm",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+serve = [
+    "fastapi>=0.100",
+    "uvicorn>=0.20",
+]
+
+[project.urls]
+Homepage = "https://github.com/pwr-ai/fsdbench"
+Repository = "https://github.com/pwr-ai/fsdbench"
+
+[project.scripts]
+fsdbench = "fsdbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["fsdbench*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 99
